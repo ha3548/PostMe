@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="500.0" prefWidth="800.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.SignUpSuccessController">
+   <children>
+      <Button fx:id="back_btn" layoutX="230.0" layoutY="359.0" mnemonicParsing="false" onAction="#backtoLogin" prefHeight="49.0" prefWidth="340.0" style="-fx-font-size: 17; -fx-font-weight: bold;" text="로그인화면으로 돌아가기">
+         <font>
+            <Font name="Arial" size="22.0" />
+         </font>
+      </Button>
+      <Label fx:id="label1" contentDisplay="RIGHT" layoutX="230.0" layoutY="202.0" prefHeight="42.0" prefWidth="56.0" style="-fx-font-size: 15;" />
+      <Label fx:id="label2" layoutX="296.0" layoutY="216.0" prefHeight="19.0" prefWidth="289.0" style="-fx-font-size: 15;" text="님, PostMe 회원이 되신 것을 환영합니다. " />
+   </children>
+</AnchorPane>

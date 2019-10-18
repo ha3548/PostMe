@@ -1,0 +1,88 @@
+/* USER TABLE */
+
+CREATE TABLE USERS(
+   ID VARCHAR2(25) CONSTRAINT pk_userid PRIMARY KEY,
+   PW VARCHAR2(50),
+   EMAIL VARCHAR2(30)
+);
+
+INSERT INTO USERS VALUES ('KDS','ektmf123','kds@gmail.com');
+INSERT INTO USERS VALUES ('LJM','wjdals456','ljm@naver.com');
+INSERT INTO USERS VALUES ('BSB','tjdqhd123','bsb@naver.com');
+INSERT INTO USER VALUES ('KDS','ektmf456','kds@naver.com');
+INSERT INTO USER VALUES ('YDB','ehdqls123','ydb@naver.com');
+
+/* PROFILE TABLE */
+
+CREATE TABLE PROFILE(
+   ID VARCHAR2(25) CONSTRAINT PK_PRO_ID PRIMARY KEY,
+    CONSTRAINT FK_PRO_ID FOREIGN KEY(ID) REFERENCES USERS(ID),
+   NAME VARCHAR2(30),
+   AGE NUMBER(2),
+   PHONE CHAR(13),
+   GENDER CHAR(6),
+   INFORMATION VARCHAR2(100),
+   PROFILE_IMAGE VARCHAR2(100)
+);
+
+/* POSTS TABLE */
+
+create table posts(
+post_num number(9) 
+constraint pk_postnum primary key,
+ID VARCHAR2(25),
+img_link varchar2(100),
+text varchar2(200),
+reg_date date,
+likes_cnt  number(2)
+);
+
+insert into posts values(1,'../image/1.jpg','KDS','길가에 핀 꽃이 예쁘다 ^^',sysdate,0);
+insert into posts values(2,'../image/2.jpg','LJM','내가 찍은 야경 사진!!',sysdate,0);
+insert into posts values(3,'../image/3.jpg','BSB','아침부터 등산을 갔다오니 몸도 마음도 상쾌하다~ 다들 좋은 하루 보내요!',sysdate,0);
+insert into posts values(4,'../image/6.jpg','YDB','우리집 냥냥이~',sysdate,0);
+
+alter table posts
+add constraint fk_postid FOREIGN KEY(ID) REFERENCES USERS(ID);
+
+CREATE TABLE COMMENTS(
+   COM_NUM NUMBER(9) CONSTRAINT pk_comment PRIMARY KEY,
+   POST_NUM NUMBER(9),
+   ID VARCHAR2(25),
+   MENT VARCHAR2(500),
+   REG_DATE DATE
+);
+
+insert into COMMENTS values (1, 1, 'BSB', '소녀감성 다슬캉><', sysdate);
+insert into COMMENTS values (2, 2, 'KDS', '우와~ 어디 놀러갔다온거야??', sysdate);
+insert into COMMENTS values (3, 2, 'YDB', '사진 멋있네 ^^', sysdate);
+insert into COMMENTS values (4, 3, 'LJM', 'HAVE A GOOD DAY~', sysdate);
+
+ALTER TABLE COMMENTS
+ADD CONSTRAINT fk_comments_pn FOREIGN KEY (POST_NUM)
+REFERENCES POSTS(POST_NUM);
+
+ALTER TABLE COMMENTS
+ADD CONSTRAINT fk_comments_id FOREIGN KEY (ID)
+REFERENCES USERS(ID);
+
+/* FRIEDNS TABLE */
+
+CREATE TABLE FRIENDS(
+   FR_ID VARCHAR2(25),
+   ID VARCHAR2(25),
+    CONSTRAINT FK_friends PRIMARY KEY(FR_ID, ID)
+);
+
+insert into friends values('BSB','KDS');
+insert into friends values('KDS','LJM');
+insert into friends values('YDB','LJM');
+insert into friends values('LJM','BSB');
+
+ALTER TABLE FRIENDS
+ADD CONSTRAINT fk_userid FOREIGN KEY (ID)
+REFERENCES USERS(ID);
+
+
+
+
