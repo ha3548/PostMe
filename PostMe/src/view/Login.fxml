@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="500.0" prefWidth="800.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LoginController">
+   <children>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="345.0" layoutY="67.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../Desktop/PostMe/logo.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="71.0" fitWidth="71.0" layoutX="274.0" layoutY="67.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../Desktop/PostMe/postit.png" />
+         </image>
+      </ImageView>
+      <TextField fx:id="id" layoutX="230.0" layoutY="184.0" prefHeight="35.0" prefWidth="340.0" promptText="아이디" />
+      <Button fx:id="finding_id_btn" layoutX="255.0" layoutY="416.0" mnemonicParsing="false" onAction="#find_id" prefHeight="35.0" prefWidth="90.0" style="-fx-background-color: white;" text="아이디 찾기" />
+      <Button fx:id="finding_pw_btn" layoutX="354.0" layoutY="416.0" mnemonicParsing="false" onAction="#find_pw" prefHeight="35.0" prefWidth="97.0" style="-fx-background-color: white;" text="비밀번호 찾기" />
+      <Button fx:id="login_btn" layoutX="230.0" layoutY="359.0" mnemonicParsing="false" onAction="#loginAction" prefHeight="49.0" prefWidth="340.0" style="-fx-font-size: 17; -fx-font-weight: bold;" text="로그인">
+         <font>
+            <Font name="Arial" size="22.0" />
+         </font></Button>
+      <PasswordField fx:id="pw" layoutX="230.0" layoutY="235.0" prefHeight="35.0" prefWidth="340.0" promptText="비밀번호" />
+      <Button fx:id="signUp_btn" layoutX="448.0" layoutY="416.0" mnemonicParsing="false" onAction="#gotoSignUp" prefHeight="35.0" prefWidth="97.0" style="-fx-background-color: white;" text="회원가입" />
+   </children>
+</AnchorPane>
